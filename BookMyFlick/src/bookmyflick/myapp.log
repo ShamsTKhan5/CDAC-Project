@@ -1,0 +1,32 @@
+2023-08-27 00:13:14.979  WARN 14612 --- [HikariPool-2 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Thread starvation or clock leap detected (housekeeper delta=26m35s256ms569µs900ns).
+2023-08-27 00:23:13.016  INFO 14612 --- [RMI TCP Connection(2)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2023-08-27 00:23:13.121  INFO 14612 --- [RMI TCP Connection(2)-127.0.0.1] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-08-27 00:23:13.123  INFO 14612 --- [RMI TCP Connection(2)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-08-27 00:23:13.132  INFO 14612 --- [RMI TCP Connection(2)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-08-27 00:23:13.134  INFO 14612 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2023-08-27 00:23:13.136  INFO 14612 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2023-08-27 00:27:20.628  INFO 17636 --- [restartedMain] com.app.Application                      : Starting Application using Java 11.0.17 on STKDell7415 with PID 17636 (D:\CDAC Project\bookmyflick\target\classes started by The Doctor in D:\CDAC Project\bookmyflick)
+2023-08-27 00:27:20.629  INFO 17636 --- [restartedMain] com.app.Application                      : No active profile set, falling back to 1 default profile: "default"
+2023-08-27 00:27:20.674  INFO 17636 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-08-27 00:27:20.674  INFO 17636 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-08-27 00:27:21.318  INFO 17636 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-08-27 00:27:21.373  INFO 17636 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 48 ms. Found 6 JPA repository interfaces.
+2023-08-27 00:27:21.914  INFO 17636 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-08-27 00:27:21.927  INFO 17636 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-08-27 00:27:21.927  INFO 17636 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.76]
+2023-08-27 00:27:22.051  INFO 17636 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-08-27 00:27:22.052  INFO 17636 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1378 ms
+2023-08-27 00:27:22.185  INFO 17636 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-27 00:27:22.220  INFO 17636 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-08-27 00:27:22.373  INFO 17636 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-08-27 00:27:22.457  INFO 17636 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-08-27 00:27:22.612  INFO 17636 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-08-27 00:27:22.626  INFO 17636 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-08-27 00:27:23.323  INFO 17636 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-27 00:27:23.331  INFO 17636 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-08-27 00:27:24.394  INFO 17636 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-08-27 00:27:24.430  INFO 17636 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-08-27 00:27:24.440  INFO 17636 --- [restartedMain] com.app.Application                      : Started Application in 4.154 seconds (JVM running for 5.088)
+2023-08-27 00:27:58.136  INFO 17636 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-08-27 00:27:58.137  INFO 17636 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-08-27 00:27:58.139  INFO 17636 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
