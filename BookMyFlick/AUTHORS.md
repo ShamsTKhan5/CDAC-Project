@@ -14,7 +14,6 @@
   - *LinkedIn*: [Suheb Sharik Maslat](http://linkedin.com/in/suheb-sharikmaslat-30168321a)
  
 
-y additional authors or contributors here, if applicable.*
 
 ---
 
