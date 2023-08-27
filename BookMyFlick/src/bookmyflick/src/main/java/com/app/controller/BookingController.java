@@ -84,7 +84,7 @@ public class BookingController {
         booking.setBookingDateTime(bookingRequest.getBookingDatetime());
         booking.setSeatNo(seatNo);
 
-        // Assuming you have valid instances of User based on the user ID from the request
+        // Assuming valid instances of User based on the user ID from the request
         User user = userService.getUserById(bookingRequest.getUserId());
 
         // Set the Showtime and User references for the booking

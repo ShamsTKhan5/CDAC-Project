@@ -43,9 +43,9 @@ function Login() {
 
   return (
     <div>
-      <h2>Login Page</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
+      <h2>Login</h2>
+      <form onSubmit={handleSubmit} style={{ margin: '0 auto', width: '300px' }}>
+        <div style={{ marginBottom: '10px' }}>
           <label htmlFor="username">Username:</label>
           <input
             type="text"
@@ -54,9 +54,10 @@ function Login() {
             value={formData.username}
             onChange={handleChange}
             required
+            style={{ width: '100%' }}
           />
         </div>
-        <div>
+        <div style={{ marginBottom: '10px' }}>
           <label htmlFor="password">Password:</label>
           <input
             type="password"
@@ -65,20 +66,26 @@ function Login() {
             value={formData.password}
             onChange={handleChange}
             required
+            style={{ width: '100%' }}
           />
         </div>
-        <div>
+        <div style={{ marginBottom: '10px' }}>
           <label>Login Type:</label>
           <select
             name="loginType"
             value={formData.loginType}
             onChange={handleChange}
+            style={{ width: '100%' }}
           >
             <option value="user">User</option>
             <option value="admin">Admin</option>
           </select>
         </div>
-        <button type="submit">Login</button>
+        <div style={{ marginTop: '20px', textAlign: 'center' }}>
+          <button type="submit" style={{ width: '100%' }}>
+            Login
+          </button>
+        </div>
       </form>
       {message && <div className="message">{message}</div>}
     </div>

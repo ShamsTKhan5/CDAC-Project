@@ -1,8 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
-import Select from '@mui/material/Select';
-import MenuItem from '@mui/material/MenuItem';
 
 import theaterService from '../services/theaterService';
 import movieService from '../services/movieService';
@@ -10,8 +6,8 @@ import showtimeService from '../services/showtimeService';
 
 function AddShowtimeForm() {
   const [formData, setFormData] = useState({
-    movie: '', // Initially empty
-    theater: '', // Initially empty
+    movie: '',
+    theater: '',
     startTime: '',
     endTime: '',
   });
@@ -63,8 +59,8 @@ function AddShowtimeForm() {
         if (response.status === 201) {
           setSuccessMessage('Showtime added successfully!');
           setFormData({
-            movie: '', // Clear movie
-            theater: '', // Clear theater
+            movie: '',
+            theater: '',
             startTime: '',
             endTime: '',
           });
@@ -83,59 +79,93 @@ function AddShowtimeForm() {
     <div>
       <h2>Add Showtime</h2>
       <form onSubmit={handleSubmit}>
-        <Select
-          label="Select Movie"
-          name="movie"
-          value={formData.movie}
-          onChange={handleChange}
-          fullWidth
-          required
-        >
-          {movies.map((movie) => (
-            <MenuItem key={movie.id} value={movie.id}>
-              {movie.title}
-            </MenuItem>
-          ))}
-        </Select>
-        <Select
-          label="Select Theater"
-          name="theater"
-          value={formData.theater}
-          onChange={handleChange}
-          fullWidth
-          required
-        >
-          {theaters.map((theater) => (
-            <MenuItem key={theater.id} value={theater.id}>
-              {theater.name}
-            </MenuItem>
-          ))}
-        </Select>
-        <TextField
-          label="Start Time"
-          name="startTime"
-          type="datetime-local"
-          value={formData.startTime}
-          onChange={handleChange}
-          fullWidth
-          required
-        />
-        <TextField
-          label="End Time"
-          name="endTime"
-          type="datetime-local"
-          value={formData.endTime}
-          onChange={handleChange}
-          fullWidth
-          required
-        />
-        <Button type="submit" variant="contained" color="primary">
+        <table>
+          <tbody>
+            <tr>
+              <td>
+                <label>Select Movie</label>
+              </td>
+              <td>
+                <select
+                  name="movie"
+                  value={formData.movie}
+                  onChange={handleChange}
+                  required
+                  style={{ width: '300px' }}
+                >
+                  <option value="" disabled>
+                    Select a Movie
+                  </option>
+                  {movies.map((movie) => (
+                    <option key={movie.id} value={movie.id}>
+                      {movie.title}
+                    </option>
+                  ))}
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label>Select Theater</label>
+              </td>
+              <td>
+                <select
+                  name="theater"
+                  value={formData.theater}
+                  onChange={handleChange}
+                  required
+                  style={{ width: '300px' }}
+                >
+                  <option value="" disabled>
+                    Select a Theater
+                  </option>
+                  {theaters.map((theater) => (
+                    <option key={theater.id} value={theater.id}>
+                      {theater.name}
+                    </option>
+                  ))}
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label>Start Time</label>
+              </td>
+              <td>
+                <input
+                  type="datetime-local"
+                  name="startTime"
+                  value={formData.startTime}
+                  onChange={handleChange}
+                  required
+                  style={{ width: '300px' }}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label>End Time</label>
+              </td>
+              <td>
+                <input
+                  type="datetime-local"
+                  name="endTime"
+                  value={formData.endTime}
+                  onChange={handleChange}
+                  required
+                  style={{ width: '300px' }}
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <button type="submit" style={{ width: '90px' }}>
           Add Showtime
-        </Button>
+        </button>
       </form>
 
-      {error && <div style={{ color: 'red' }}>{error}</div>}
-      {successMessage && <div style={{ color: 'green' }}>{successMessage}</div>}
+      {error && <div style={{ color: 'red', marginTop: '10px' }}>{error}</div>}
+      {successMessage && <div style={{ color: 'green', marginTop: '10px' }}>{successMessage}</div>}
     </div>
   );
 }

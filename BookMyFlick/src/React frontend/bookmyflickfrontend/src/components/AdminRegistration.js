@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import registerAdmin from '../services/adminregistrationService'; // Assuming you have a service for admin registration
+import registerAdmin from '../services/adminregistrationService'; 
 
 function AdminRegistration() {
   const initialFormData = {
@@ -60,14 +60,14 @@ function AdminRegistration() {
       });
   };
 
-  // Define fields based on Admin entity
+  
   const adminFields = [
     { name: 'username', label: 'Username', type: 'text', required: true },
     { name: 'password', label: 'Password', type: 'password', required: true },
     { name: 'email', label: 'Email', type: 'email', required: true },
     { name: 'firstName', label: 'First Name', type: 'text', required: true },
     { name: 'lastName', label: 'Last Name', type: 'text', required: true },
-    // Add more fields for admin-specific information here
+   
   ];
 
   return (

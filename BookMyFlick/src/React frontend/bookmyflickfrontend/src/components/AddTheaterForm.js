@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
 
 // Import the theaterService
 import theaterService from '../services/theaterService';
@@ -57,45 +55,76 @@ function AddTheaterForm() {
     <div>
       <h2>Add Theater</h2>
       <form onSubmit={handleSubmit}>
-        <TextField
-          label="Name"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-          fullWidth
-          required
-        />
-        <TextField
-          label="Location"
-          name="location"
-          value={formData.location}
-          onChange={handleChange}
-          fullWidth
-          required
-        />
-        <TextField
-          label="Capacity"
-          name="capacity"
-          type="number"
-          value={formData.capacity}
-          onChange={handleChange}
-          fullWidth
-          required
-        />
-        <TextField
-          label="Facilities"
-          name="facilities"
-          value={formData.facilities}
-          onChange={handleChange}
-          fullWidth
-        />
-        <Button type="submit" variant="contained" color="primary">
+        <table>
+          <tbody>
+            <tr>
+              <td>
+                <label>Name</label>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  style={{ width: '100%' }}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label>Location</label>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  name="location"
+                  value={formData.location}
+                  onChange={handleChange}
+                  required
+                  style={{ width: '100%' }}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label>Capacity</label>
+              </td>
+              <td>
+                <input
+                  type="number"
+                  name="capacity"
+                  value={formData.capacity}
+                  onChange={handleChange}
+                  required
+                  style={{ width: '100%' }}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label>Facilities</label>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  name="facilities"
+                  value={formData.facilities}
+                  onChange={handleChange}
+                  style={{ width: '100%' }}
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <button type="submit" style={{ width: '30 px' }}>
           Add Theater
-        </Button>
+        </button>
       </form>
 
-      {error && <div style={{ color: 'red' }}>{error}</div>}
-      {successMessage && <div style={{ color: 'green' }}>{successMessage}</div>}
+      {error && <div style={{ color: 'red', marginTop: '10px' }}>{error}</div>}
+      {successMessage && <div style={{ color: 'green', marginTop: '10px' }}>{successMessage}</div>}
     </div>
   );
 }

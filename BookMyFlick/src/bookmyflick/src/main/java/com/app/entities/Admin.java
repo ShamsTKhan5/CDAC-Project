@@ -32,14 +32,12 @@ public class Admin {
     @NotBlank(message = "Last name is required")
     private String lastName;
 
-    // You can add more admin-specific fields here
-
-    // Constructors
+    
 
     public Admin() {
     }
 
-    // Getters and setters
+
 
     public Long getId() {
         return id;
@@ -89,9 +87,7 @@ public class Admin {
         this.lastName = lastName;
     }
 
-    // Add getters and setters for any additional admin-specific fields...
-
-    // toString method
+    
 
     @Override
     public String toString() {
@@ -101,7 +97,7 @@ public class Admin {
                 ", email='" + email + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                // Include other fields as needed
+              
                 '}';
     }
 }

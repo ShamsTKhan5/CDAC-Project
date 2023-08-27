@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
 import registerUser from '../services/registrationService';
 
 function Registration() {
@@ -16,6 +14,11 @@ function Registration() {
   const [formData, setFormData] = useState(initialFormData);
   const [error, setError] = useState(null);
   const [successMessage, setSuccessMessage] = useState(null);
+
+  const inputStyle = {
+    marginBottom: '10px', 
+    width: '100%', 
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -64,55 +67,70 @@ function Registration() {
     <div>
       <h2>Register</h2>
       <form onSubmit={handleSubmit}>
-        <TextField
-          label="Username"
-          name="username"
-          value={formData.username}
-          onChange={handleChange}
-          fullWidth
-          required
-        />
-        <TextField
-          label="Password"
-          type="password"
-          name="password"
-          value={formData.password}
-          onChange={handleChange}
-          fullWidth
-          required
-        />
-        <TextField
-          label="Email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          fullWidth
-          required
-        />
-        <TextField
-          label="First Name"
-          name="firstName"
-          value={formData.firstName}
-          onChange={handleChange}
-          fullWidth
-        />
-        <TextField
-          label="Last Name"
-          name="lastName"
-          value={formData.lastName}
-          onChange={handleChange}
-          fullWidth
-        />
-        <TextField
-          label="Phone Number"
-          name="phoneNumber"
-          value={formData.phoneNumber}
-          onChange={handleChange}
-          fullWidth
-        />
-        <Button type="submit" variant="contained" color="primary">
-          Register
-        </Button>
+        <div>
+          <label>Username</label>
+          <input
+            type="text"
+            name="username"
+            value={formData.username}
+            onChange={handleChange}
+            required
+            style={inputStyle} 
+          />
+        </div>
+        <div>
+          <label>Password</label>
+          <input
+            type="password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+            required
+            style={inputStyle} 
+          />
+        </div>
+        <div>
+          <label>Email</label>
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+            style={inputStyle} 
+          />
+        </div>
+        <div>
+          <label>First Name</label>
+          <input
+            type="text"
+            name="firstName"
+            value={formData.firstName}
+            onChange={handleChange}
+            style={inputStyle} 
+          />
+        </div>
+        <div>
+          <label>Last Name</label>
+          <input
+            type="text"
+            name="lastName"
+            value={formData.lastName}
+            onChange={handleChange}
+            style={inputStyle} 
+          />
+        </div>
+        <div>
+          <label>Phone Number</label>
+          <input
+            type="text"
+            name="phoneNumber"
+            value={formData.phoneNumber}
+            onChange={handleChange}
+            style={inputStyle} 
+          />
+        </div>
+        <button type="submit">Register</button>
       </form>
 
       {error && <div style={{ color: 'red' }}>{error}</div>}

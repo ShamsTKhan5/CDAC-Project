@@ -43,7 +43,7 @@ public class User {
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
     private List<Booking> bookings;
 
-    // Constructors
+    
 
     public User() {
     }
@@ -123,7 +123,7 @@ public class User {
         this.bookings = bookings;
     }
 
-    // toString method
+    
 
     @Override
     public String toString() {

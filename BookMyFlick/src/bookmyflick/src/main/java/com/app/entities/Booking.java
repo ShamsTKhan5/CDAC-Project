@@ -39,7 +39,7 @@ public class Booking {
     @Length(min = 1, max = 300) // Define seat number length constraints
     private String seatNo;
 
-    // Constructors
+   
     public Booking() {
     }
 
@@ -48,7 +48,7 @@ public class Booking {
         this.seatNo = seatNo;
     }
 
-    // Getters and setters
+    
     public Long getId() {
         return id;
     }
@@ -89,7 +89,7 @@ public class Booking {
         this.seatNo = seatNo;
     }
 
-    // toString method
+    
     @Override
     public String toString() {
         return "Booking{" +

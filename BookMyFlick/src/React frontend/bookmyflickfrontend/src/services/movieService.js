@@ -10,4 +10,4 @@ const getAllMovies = () => {
   return axios.get(`${API_URL}`);
 };
 
-export default { addMovie, getAllMovies }; // Export an object with functions
+export default { addMovie, getAllMovies }; 

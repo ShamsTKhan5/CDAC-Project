@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
 
 // Import the movie service
 import movieService from '../services/movieService';
@@ -63,72 +61,110 @@ function AddMovieForm() {
     <div>
       <h2>Add Movie</h2>
       <form onSubmit={handleSubmit}>
-        <TextField
-          label="Title"
-          name="title"
-          value={formData.title}
-          onChange={handleChange}
-          fullWidth
-          required
-        />
-        <TextField
-          label="Genre"
-          name="genre"
-          value={formData.genre}
-          onChange={handleChange}
-          fullWidth
-          required
-        />
-        <TextField
-          label="Director"
-          name="director"
-          value={formData.director}
-          onChange={handleChange}
-          fullWidth
-          required
-        />
-        <TextField
-          label="Duration (minutes)"
-          name="durationMinutes"
-          type="number"
-          value={formData.durationMinutes}
-          onChange={handleChange}
-          fullWidth
-          required
-        />
-        <TextField
-          label="Release Date"
-          name="releaseDate"
-          type="date"
-          value={formData.releaseDate}
-          onChange={handleChange}
-          fullWidth
-          required
-          InputLabelProps={{
-            shrink: true,
-          }}
-        />
-        <TextField
-          label="Description"
-          name="description"
-          value={formData.description}
-          onChange={handleChange}
-          fullWidth
-        />
-        <TextField
-          label="Poster Image URL"
-          name="posterImageUrl"
-          value={formData.posterImageUrl}
-          onChange={handleChange}
-          fullWidth
-        />
-        <Button type="submit" variant="contained" color="primary">
-          Add Movie
-        </Button>
+        <table>
+          <tbody>
+            <tr>
+              <td>
+                <label>Title</label>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  name="title"
+                  value={formData.title}
+                  onChange={handleChange}
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label>Genre</label>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  name="genre"
+                  value={formData.genre}
+                  onChange={handleChange}
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label>Director</label>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  name="director"
+                  value={formData.director}
+                  onChange={handleChange}
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label>Duration (minutes)</label>
+              </td>
+              <td>
+                <input
+                  type="number"
+                  name="durationMinutes"
+                  value={formData.durationMinutes}
+                  onChange={handleChange}
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label>Release Date</label>
+              </td>
+              <td>
+                <input
+                  type="date"
+                  name="releaseDate"
+                  value={formData.releaseDate}
+                  onChange={handleChange}
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label>Description</label>
+              </td>
+              <td>
+                <textarea
+                  name="description"
+                  value={formData.description}
+                  onChange={handleChange}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label>Poster Image URL</label>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  name="posterImageUrl"
+                  value={formData.posterImageUrl}
+                  onChange={handleChange}
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <button type="submit">Add Movie</button>
       </form>
 
-      {error && <div style={{ color: 'red' }}>{error}</div>}
-      {successMessage && <div style={{ color: 'green' }}>{successMessage}</div>}
+      {error && <div style={{ color: 'red', marginTop: '10px' }}>{error}</div>}
+      {successMessage && <div style={{ color: 'green', marginTop: '10px' }}>{successMessage}</div>}
     </div>
   );
 }

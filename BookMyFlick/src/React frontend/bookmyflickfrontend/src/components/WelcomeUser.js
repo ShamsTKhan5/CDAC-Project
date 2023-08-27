@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Button from '@mui/material/Button';
+import Grid from '@mui/material/Grid';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableRow from '@mui/material/TableRow';
 
 import showtimeService2 from '../services/showtimeService2';
 import bookingService from '../services/bookingService';
@@ -13,54 +19,38 @@ function WelcomeUser() {
     showtimes: [],
     selectedShowtime: null,
     currentUserId: null,
+    selectedSeat: '',
+    bookingSuccess: false,
     loading: true,
     error: null,
   });
 
-  // Fetch the showtimes
   useEffect(() => {
-    const fetchShowtimes = async () => {
+    const fetchData = async () => {
       try {
         const showtimeResponse = await showtimeService2.getAllShowtimes();
-        setData((prevData) => ({
-          ...prevData,
-          showtimes: showtimeResponse.data,
-          loading: false,
-        }));
-      } catch (error) {
-        setData((prevData) => ({
-          ...prevData,
-          error: 'Showtimes fetch error',
-          loading: false,
-        }));
-        console.error('Showtimes fetch error:', error);
-      }
-    };
-
-    fetchShowtimes();
-  }, []);
-
-  // Fetch the user ID
-  useEffect(() => {
-    const fetchUserId = async () => {
-      try {
         const userId = await userService2.getUserIdByUsername(username);
         setData((prevData) => ({
           ...prevData,
+          showtimes: showtimeResponse.data,
           currentUserId: userId,
+          loading: false,
         }));
       } catch (error) {
-        console.error('User ID fetch error:', error);
+        setData((prevData) => ({
+          ...prevData,
+          error: 'Data fetch error',
+          loading: false,
+        }));
+        console.error('Data fetch error:', error);
       }
     };
 
-    fetchUserId();
+    fetchData();
   }, [username]);
 
   const handleSelectShowtime = (showtime) => {
-    // Check if the showtime object contains movie and theater details
     if (showtime.movie && showtime.theater) {
-      // Update the state with the selected showtime and its details
       setData((prevData) => ({
         ...prevData,
         selectedShowtime: showtime,
@@ -70,18 +60,18 @@ function WelcomeUser() {
     }
   };
 
+  const handleSeatSelect = (seat) => {
+    setData((prevData) => ({
+      ...prevData,
+      selectedSeat: seat,
+    }));
+  };
+
   const handleBookingSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault(); // Prevent the default form submission behavior
 
-    if (!data.selectedShowtime || !data.currentUserId) {
-      console.error('Selected showtime or user ID is missing.');
-      return;
-    }
-
-    // Prompt the user to enter a seat number
-    const seatNumber = prompt('Enter a seat number:');
-    if (!seatNumber) {
-      console.log('Booking canceled by the user.');
+    if (!data.selectedShowtime || !data.currentUserId || !data.selectedSeat) {
+      console.error('Selected showtime, user ID, or seat is missing.');
       return;
     }
 
@@ -89,18 +79,19 @@ function WelcomeUser() {
       showtimeId: data.selectedShowtime.id,
       userId: data.currentUserId,
       bookingDatetime: new Date().toISOString(),
-      seatNo: seatNumber, // Include the seat number in the booking data
+      seatNo: data.selectedSeat,
     };
-
-    console.log('Booking Data:', bookingData); // Debugging statement
 
     try {
       const response = await bookingService.addBooking(bookingData);
-      console.log('Booking Response:', response); // Debugging statement
 
       if (response.status === 201) {
         console.log('Booking added successfully!');
-        // Optionally, you can redirect the user to a confirmation page here.
+        setData((prevData) => ({
+          ...prevData,
+          bookingSuccess: true,
+        }));
+        
       } else {
         console.error('Booking addition failed:', response.data.message);
       }
@@ -108,6 +99,18 @@ function WelcomeUser() {
       console.error('Booking addition error:', error);
     }
   };
+
+ const generateSeatOptions = () => {
+  const seatOptions = [];
+
+  for (let row = 48; row >= 1; row--) { // Start from 48 and go down to 1
+    for (let seat = 'A'; seat <= 'F'; seat = String.fromCharCode(seat.charCodeAt(0) + 1)) {
+      seatOptions.push(`${row}${seat}`);
+    }
+  }
+
+  return seatOptions;
+};
 
   return (
     <div>
@@ -117,20 +120,33 @@ function WelcomeUser() {
       ) : data.error ? (
         <p>Error: {data.error}</p>
       ) : (
-        <div>
+        <form onSubmit={handleBookingSubmit}>
           <h3>Select a Showtime to Book:</h3>
-          <ul>
-            {data.showtimes.map((showtime) => (
-              <li key={showtime.id}>
-                <p>
-                  Movie: {showtime.movie?.title || 'N/A'}<br />
-                  Theater: {showtime.theater?.name || 'N/A'}<br />
-                  Start Time: {showtime.startTime}
-                </p>
-                <Button onClick={() => handleSelectShowtime(showtime)}>Select</Button>
-              </li>
-            ))}
-          </ul>
+          <TableContainer>
+            <Table>
+              <TableBody>
+                <TableRow>
+                  {data.showtimes.map((showtime) => (
+                    <TableCell key={showtime.id}>
+                      <label>
+                        <input
+                          type="radio"
+                          name="showtime"
+                          value={showtime.id}
+                          onChange={() => handleSelectShowtime(showtime)}
+                        />
+                        <p style={{ color: 'white' }}>
+                          Movie: {showtime.movie?.title || 'N/A'}<br />
+                          Theater: {showtime.theater?.name || 'N/A'}<br />
+                          Start Time: {showtime.startTime}
+                        </p>
+                      </label>
+                    </TableCell>
+                  ))}
+                </TableRow>
+              </TableBody>
+            </Table>
+          </TableContainer>
 
           {data.selectedShowtime && data.currentUserId && (
             <div>
@@ -141,19 +157,41 @@ function WelcomeUser() {
                 Start Time: {data.selectedShowtime.startTime}
               </p>
               <h3>Booking Details:</h3>
-              <form onSubmit={handleBookingSubmit}>
-                <p>
-                  Movie: {data.selectedShowtime.movie?.title || 'N/A'}<br />
-                  Theater: {data.selectedShowtime.theater?.name || 'N/A'}<br />
-                  Start Time: {data.selectedShowtime.startTime}
-                </p>
-                <Button type="submit" variant="contained" color="primary">
-                  Book Now
-                </Button>
-              </form>
+              {data.bookingSuccess ? (
+                <p style={{ color: 'green' }}>Booking successful!</p>
+              ) : (
+                <div>
+                  <p>
+                    Movie: {data.selectedShowtime.movie?.title || 'N/A'}<br />
+                    Theater: {data.selectedShowtime.theater?.name || 'N/A'}<br />
+                    Start Time: {data.selectedShowtime.startTime}
+                  </p>
+                  <h4>Select a Seat:</h4>
+                  <Grid container spacing={2}>
+                    {generateSeatOptions().map((seatOption) => (
+                      <Grid item key={seatOption}>
+                        <Button
+                          variant={seatOption === data.selectedSeat ? 'contained' : 'outlined'}
+                          onClick={() => handleSeatSelect(seatOption)}
+                        >
+                          {seatOption}
+                        </Button>
+                      </Grid>
+                    ))}
+                  </Grid>
+                  <Button
+                    type="submit" 
+                    variant="contained"
+                    color="primary"
+                    disabled={!data.selectedSeat}
+                  >
+                    Book Now
+                  </Button>
+                </div>
+              )}
             </div>
           )}
-        </div>
+        </form>
       )}
     </div>
   );

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import movieService from '../services/movieService'; // Import your movie service
+import movieService from '../services/movieService'; 
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 function MovieSelection() {

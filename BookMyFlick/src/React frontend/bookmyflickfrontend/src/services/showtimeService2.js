@@ -14,7 +14,7 @@ const addShowtime = (formDataWithIds) => {
 
 const showtimeService2 = {
   getAllShowtimes, // Add the getAllShowtimes method
-  addShowtime, // Add other methods if needed
+  addShowtime, // Add addShowtime
 };
 
 export default showtimeService2;

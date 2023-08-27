@@ -39,7 +39,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
         @JsonIgnore
         private List<Showtime> showtimes;
 
-    // Constructors
+    
     public Theater() {
     }
     
@@ -55,7 +55,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
         this.facilities = facilities;
     }
 
-    // Getters and setters
+    
     public Long getId() {
         return id;
     }
@@ -105,7 +105,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
         this.showtimes = showtimes;
     }
 
-    // toString method
+    
     @Override
     public String toString() {
         return "Theater{" +

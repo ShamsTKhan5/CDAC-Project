@@ -8,7 +8,7 @@ public class BookingRequest {
     private LocalDateTime bookingDatetime;
     private String seatNo;
 
-    // Constructors
+    
     public BookingRequest() {
     }
 
@@ -19,7 +19,7 @@ public class BookingRequest {
         this.seatNo = seatNo;
     }
 
-    // Getters and setters
+   
     public Long getShowtimeId() {
         return showtimeId;
     }
@@ -52,7 +52,7 @@ public class BookingRequest {
         this.seatNo = seatNo;
     }
 
-    // toString method (for debugging and logging)
+    
     @Override
     public String toString() {
         return "BookingRequest{" +

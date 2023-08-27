@@ -6,4 +6,4 @@ const registerUser = (formData) => {
   return axios.post(`${API_URL}`, formData);
 };
 
-export default registerUser; // Keep this as the default export
+export default registerUser; 

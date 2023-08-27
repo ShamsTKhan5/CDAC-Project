@@ -56,7 +56,7 @@ public class Showtime implements Serializable {
         this.endTime = endTime;
     }
 
-    // Getters and setters
+    
     public Long getId() {
         return id;
     }
@@ -105,7 +105,7 @@ public class Showtime implements Serializable {
         this.bookings = bookings;
     }
 
-    // toString method
+   
     @Override
     public String toString() {
         return "Showtime{" +

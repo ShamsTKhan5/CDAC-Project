@@ -52,7 +52,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 	    @JsonIgnore
 	    private List<Showtime> showtimes;
 
-    // Constructors
+    
 
     public Movie() {
     }
@@ -71,8 +71,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
         this.posterImageUrl = posterImageUrl;
     }
 
-    // Getters and setters
-
+   
     public Long getId() {
         return id;
     }
@@ -145,7 +144,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
         this.showtimes = showtimes;
     }
 
-    // toString method
+    
 
     @Override
     public String toString() {
@@ -158,7 +157,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
                 ", releaseDate=" + releaseDate +
                 ", description='" + description + '\'' +
                 ", posterImageUrl='" + posterImageUrl + '\'' +
-                // Include other fields as needed
+               
                 '}';
     }
 }

@@ -1,4 +1,4 @@
-// src/services/theaterService.js
+
 
 import axios from 'axios';
 
@@ -18,4 +18,4 @@ const theaterService = {
   getAllTheaters,
 };
 
-export default theaterService; // Export the object as the default export
+export default theaterService; 

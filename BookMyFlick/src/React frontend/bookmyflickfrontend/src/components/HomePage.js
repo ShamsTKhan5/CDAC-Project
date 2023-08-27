@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import { Link } from 'react-router-dom'; 
 import '../assets/style.css'; // Import CSS file from the assets directory
 import logo from '../assets/images/logo.png';
 import moviePoster from '../assets/dummy/gogvol3.jpg';

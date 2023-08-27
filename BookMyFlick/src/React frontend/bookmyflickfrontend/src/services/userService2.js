@@ -1,15 +1,15 @@
-// userService.js
+
 
 import axios from 'axios';
 
-const API_URL = 'http://localhost:8080/users'; // Replace with your actual API endpoint
+const API_URL = 'http://localhost:8080/users'; 
 
 // Function to get a user's ID by username
 function getUserIdByUsername(username) {
   return axios.get(`${API_URL}?username=${username}`)
     .then((response) => {
       if (response.data.length > 0) {
-        return response.data[0].id; // Assuming username is unique
+        return response.data[0].id; 
       } else {
         throw new Error('User not found');
       }

@@ -39,7 +39,7 @@ function AddBookingForm({ onAddBooking, movies, theaters, showtimes, currentUser
       });
     } else {
       console.error('One or more dropdowns are empty. Please select options for all fields.');
-      // You can set an error message state here and display it to the user
+      // set an error message state here and display it to the user
     }
   };
 
