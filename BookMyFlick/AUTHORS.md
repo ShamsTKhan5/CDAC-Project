@@ -8,10 +8,12 @@
   - *LinkedIn*: [Shams Tabrez Khan](http://linkedin.com/in/shams-tabrez-khan-553545a3)
   - *GitHub*: [GitHub Profile](https://github.com/ShamsTKhan5)
 
-- **Suheb Sharik Maslat**
+- **Suheb Sharikmaslat**
   - *Position*: UX/UI Designer/Backend Developer
   - *Email*: sharikmaslatsuheb@gmail.com
   - *LinkedIn*: [Suheb Sharik Maslat](http://linkedin.com/in/suheb-sharikmaslat-30168321a)
+  - *GitHub*: [GitHub Profile](https://github.com/sharikmaslatsuheb123)
+  
  
 
 
