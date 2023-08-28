@@ -2,6 +2,7 @@ package com.app.entities;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -19,6 +20,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(unique = true)
     @NotBlank(message = "Username is required")
     @Size(min = 4, max = 50, message = "Username must be between 4 and 50 characters")
     private String username;
@@ -29,6 +31,7 @@ public class User {
 
     @NotBlank(message = "Email is required")
     @Email(message = "Invalid email format")
+    @Column(unique = true)
     private String email;
 
     @NotBlank(message = "First name is required")
@@ -37,6 +40,7 @@ public class User {
     @NotBlank(message = "Last name is required")
     private String lastName;
 
+    @Column(unique = true)
     @Pattern(regexp = "^\\d{10}$", message = "Phone number must be a 10-digit number")
     private String phoneNumber;
 

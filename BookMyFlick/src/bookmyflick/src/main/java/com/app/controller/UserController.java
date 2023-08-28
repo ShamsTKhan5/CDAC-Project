@@ -23,7 +23,7 @@ import com.app.service.UserService;
 @RestController
 @RequestMapping("/users")
 @CrossOrigin(origins = "http://localhost:3000")
-public class UserController {
+public class UserController extends BaseController {
 
     private final UserService userService;
 

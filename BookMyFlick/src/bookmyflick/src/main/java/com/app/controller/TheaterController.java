@@ -21,7 +21,7 @@ import com.app.service.TheaterService;
 @RestController
 @RequestMapping("/theaters")
 @CrossOrigin(origins = "http://localhost:3000")
-public class TheaterController {
+public class TheaterController extends BaseController {
 
     private final TheaterService theaterService;
 

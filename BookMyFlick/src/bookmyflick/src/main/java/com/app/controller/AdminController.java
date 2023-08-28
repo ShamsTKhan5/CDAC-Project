@@ -23,7 +23,7 @@ import com.app.service.AdminService;
 @RestController
 @RequestMapping("/admins")
 @CrossOrigin(origins = "http://localhost:3000")
-public class AdminController {
+public class AdminController extends BaseController {
 
     private final AdminService adminService;
 

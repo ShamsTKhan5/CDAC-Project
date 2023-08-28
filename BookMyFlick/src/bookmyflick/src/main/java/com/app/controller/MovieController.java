@@ -21,7 +21,7 @@ import com.app.service.MovieService;
 @RestController
 @RequestMapping("/movies")
 @CrossOrigin(origins = "http://localhost:3000")
-public class MovieController {
+public class MovieController extends BaseController {
 
     private final MovieService movieService;
 

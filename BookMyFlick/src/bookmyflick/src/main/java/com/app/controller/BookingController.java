@@ -25,7 +25,7 @@ import com.app.service.UserService;
 @RestController
 @RequestMapping("/bookings")
 @CrossOrigin(origins = "http://localhost:3000")
-public class BookingController {
+public class BookingController extends BaseController{
 
     private final BookingService bookingService;
     

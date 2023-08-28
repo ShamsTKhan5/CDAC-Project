@@ -21,7 +21,7 @@ import com.app.service.ShowtimeService;
 @RestController
 @RequestMapping("/showtimes")
 @CrossOrigin(origins = "http://localhost:3000")
-public class ShowtimeController {
+public class ShowtimeController extends BaseController {
 
     private final ShowtimeService showtimeService;
 
